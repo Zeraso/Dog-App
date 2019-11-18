@@ -1,3 +1,18 @@
+
+<!-- Container with list of dogs unfiltered -->
+
 <% @dogs.each do |dog| %>
 <%= link_to dog.name, dog_path(dog) %>
 <% end %>
+
+
+<div class="card-dog">
+  <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80" class= "img-fluid"/>
+  <div class="card-dog-infos">
+    <div>
+      <h2>Bobby</h2>
+      <p>Pug</p>
+    </div>
+    <h2 class="card-dog-gender">Female</h2>
+  </div>
+</div>

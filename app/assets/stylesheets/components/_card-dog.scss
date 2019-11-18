@@ -1,0 +1,41 @@
+.card-dog {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 300px;
+  border-radius: 6px;
+}
+
+.card-dog > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-dog h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-dog p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-dog .card-dog-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-dog-infos .card-dog-gender {
+  position: absolute;
+  right: 26px;
+  top: 18px;
+  width: 40px;
+}
