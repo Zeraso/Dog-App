@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
   def index
     @dogs = Dog.all
   end
@@ -23,6 +24,11 @@ class DogsController < ApplicationController
   end
 
   def update
+    if @dog.update(dog_params)
+      redirect_to @dog
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -32,5 +38,9 @@ class DogsController < ApplicationController
 
   def dog_params
     params.require(:dog).permit(:name, :race, :age, :coat)
+  end
+
+  def set_dog
+    @dog = Dog.find(params[:id])
   end
 end
