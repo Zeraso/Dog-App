@@ -7,7 +7,11 @@
     <li>Coat <%= @dog.coat %></li>
   </ul>
 
-
+<% if policy(@dog).destroy? %>
+<%= link_to "delete", @dog,
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    <% end %>
 <%= link_to "go back to homepage", dogs_path %>
   <% if policy(@dog).edit? %>
     <%= link_to "Update", edit_dog_path(@dog) %>
