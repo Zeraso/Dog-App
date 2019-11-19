@@ -1,7 +1,8 @@
 class MeetingPolicy < ApplicationPolicy
   class Scope < Scope
+
     def resolve
-      scope.all
+      scope.where(user: user).or(dog_owner: user)
     end
   end
 end
