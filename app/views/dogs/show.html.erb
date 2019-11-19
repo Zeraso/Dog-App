@@ -9,5 +9,6 @@
 
 
 <%= link_to "go back to homepage", dogs_path %>
-
-
+  <% if policy(@dog).edit? %>
+    <%= link_to "Update", edit_dog_path(@dog) %>
+  <% end %>

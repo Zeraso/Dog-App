@@ -1,7 +1,19 @@
 class DogPolicy < ApplicationPolicy
 
   def create?
-    return true
+    true
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def new?
+    true
+  end
+
+  def show?
+    true
   end
 
   class Scope < Scope
