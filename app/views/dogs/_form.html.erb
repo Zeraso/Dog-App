@@ -1,14 +1,13 @@
-
-
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6 shadow p-3 mb-5 bg-white rounded">
       <!-- This div is centered and takes 6 columns -->
       <%= simple_form_for(@dog) do |f| %>
         <%= f.input :name %>
-        <%= f.input :age %>
-        <%= f.input :race %>
+        <%= f.input :gender %>
+        <%= f.input :breed %>
         <%= f.input :coat %>
+        <%= f.input :birthday %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>
