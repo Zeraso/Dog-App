@@ -16,12 +16,7 @@
 
 .search-form-control {
   position: absolute;
-  padding: 3px 3px;
-  margin: 2px 2px;
-  left: 100px;
-  top: 15px;
   display: flex;
-
   input {
     flex-grow:1;
   }
@@ -29,9 +24,6 @@
 
 .search-form-control .btn {
   position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
 }
 
 .search-form-control .form-control {
@@ -45,14 +37,6 @@
   border: 1px solid #1EDD88;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.dropdown-item {
-    background: white;
-}
-
-.dropdown-menu {
-    background: white;
 }
 
 .navbar-container {
@@ -75,3 +59,16 @@
   }
 }
 
+.nav-item {
+  padding: 5px 10px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.dropdown-item {
+    background: white;
+}
+
+.dropdown-menu {
+    background: white;
+}
