@@ -10,8 +10,9 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body class="h-3000">
+    <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
-    <p class= "alert"><%= alert %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
