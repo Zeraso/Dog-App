@@ -3,7 +3,8 @@ class Dog < ApplicationRecord
   has_many :meetings
 
   validates :name, presence: true
-  validates :age, presence: true, inclusion: { in: (0..20) }, numericality: { only_integer: true }
-  validates :race, presence: true
+  validates :birthday, presence: true
+  validates :breed, presence: true
   validates :coat, presence: true
+  validates :gender, presence: true
 end
