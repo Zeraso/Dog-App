@@ -12,6 +12,7 @@ class DogsController < ApplicationController
   end
 
   def create
+    authorize @restaurant
     @dog = Dog.new(dog_params)
     @dog.user = current_user
     if @dog.save
