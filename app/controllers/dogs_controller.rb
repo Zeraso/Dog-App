@@ -9,11 +9,12 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
+    authorize @dog
   end
 
   def create
-    authorize @dog
     @dog = Dog.new(dog_params)
+    authorize @dog
     @dog.user = current_user
     if @dog.save
       redirect_to dog_path(@dog)
