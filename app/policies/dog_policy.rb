@@ -1,11 +1,15 @@
 class DogPolicy < ApplicationPolicy
 
   def new?
-    return true
+     true
   end
 
   def create?
-    return true
+     true
+  end
+
+  def show?
+    true
   end
 
   class Scope < Scope

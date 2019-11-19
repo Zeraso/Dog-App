@@ -5,7 +5,6 @@ class DogsController < ApplicationController
   end
 
   def show
-    authorize @dog
   end
 
   def new
