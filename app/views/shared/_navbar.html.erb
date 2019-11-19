@@ -30,7 +30,7 @@
             <%= link_to('Sign In', new_user_session_path) %>
           </li>
         <% end %>
-        
+
         <li class="nav-item dropdown">
           <% if user_signed_in? %>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -38,7 +38,7 @@
               <%= link_to "Settings", "#", class: "dropdown-item" %>
               <%= link_to "Your match", "#", class: "dropdown-item" %>
           <% else %>
-            <%= image_tag "Avatar Logout", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           </div>
         </li>
