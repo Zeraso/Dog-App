@@ -5,15 +5,17 @@ class DogsController < ApplicationController
   end
 
   def show
+    authorize @dog
   end
 
   def new
     @dog = Dog.new
+    authorize @dog
   end
 
   def create
-    authorize @dog
     @dog = Dog.new(dog_params)
+    authorize @dog
     @dog.user = current_user
     if @dog.save
       redirect_to dog_path(@dog)
@@ -44,5 +46,6 @@ class DogsController < ApplicationController
 
   def set_dog
     @dog = Dog.find(params[:id])
+    authorize @dog
   end
 end

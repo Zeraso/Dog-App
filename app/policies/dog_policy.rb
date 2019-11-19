@@ -1,5 +1,9 @@
 class DogPolicy < ApplicationPolicy
 
+  def new?
+    return true
+  end
+
   def create?
     return true
   end
