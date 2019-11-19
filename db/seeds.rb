@@ -15,10 +15,10 @@ Dog.destroy_all
 puts 'Creating 20 doggies...'
 20.times do
   dog = Dog.new(
-    name: Faker::Games::Pokemon.name,
+    name: Faker::Creature::Dog.name,
     breed:Faker::Creature::Dog.breed,
     birthday: "2018""12""12",
-    gender: Faker::Creature::Dog.gender,
+    gender: ["Female","Male"].sample,
     coat:Faker::Creature::Dog.coat_length,
     user_id: 1
   )

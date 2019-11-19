@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1546421845-6471bdcf3edf?ixlib=rb-1.2.1);">
   <div class="container">
-    <h1>Find their perfect <strong>match</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <h1>Find them a perfect <strong>match</strong>!</h1>
+    <p>Discover the best soulmate for your compagnon.</p>
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
         <div class="search-form-control form-group">
           <input class="form-control string required" type="text" name="search[query]" id="search_query" />
@@ -13,25 +13,30 @@
   </div>
 </div>
 
-<div class="container shadow-sm p-3 bg-white rounded">
+<div class="container card-dog-master shadow-sm p-3 bg-white rounded">
   <div class="row my-3">
     <% @dogs.each do |dog| %>
       <div class="col-sm-3 py-3">
         <div class="card-dog">
-          <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80" class= "img-fluid"/>
+          <img src="https://source.unsplash.com/1600x900/?dog,<%= dog.breed %>,breed,cute" class= "img-fluid"/>
           <div class="card-dog-infos">
             <div>
               <h2><%= dog.name %></h2>
               <p><%= dog.breed %></p>
             </div>
             <!-- <h2 class="card-dog-gender">Female</h2> -->
-            <h2 class= "card-dog-gender fas fa-venus"></h2>
+            <% if dog.gender == "Female" %>
+              <h2 class= "card-dog-gender fas fa-venus"></h2>
+            <% else dog.gender == "Male" %>
+              <h2 class= "card-dog-gender fas fa-mars"></h2>
+            <% end %>
             <!-- <p class= "fas fa-paw"></p> -->
           </div>
         </div>
       </div>
     <% end %>
-  </div>
+    </div>
 </div>
 
+<!-- https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80 -->
 
