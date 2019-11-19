@@ -1,15 +1,23 @@
 class DogPolicy < ApplicationPolicy
 
-  def new?
-     true
+  def create?
+    true
   end
 
-  def create?
-     true
+  def update?
+    record.user == user
+  end
+
+  def new?
+    true
   end
 
   def show?
     true
+  end
+
+  def destroy?
+    record.user == user
   end
 
   class Scope < Scope
