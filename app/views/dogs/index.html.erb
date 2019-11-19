@@ -1,18 +1,3 @@
-
-<!-- Container with list of dogs unfiltered -->
-
-
-<!-- <div class="card-dog">
-  <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80" class= "img-fluid"/>
-  <div class="card-dog-infos">
-    <div>
-      <h2>Bobby</h2>
-      <p>Pug</p>
-    </div>
-    <h2 class="card-dog-gender">Female</h2>
-  </div>
-</div> -->
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1546421845-6471bdcf3edf?ixlib=rb-1.2.1);">
   <div class="container">
     <h1>Find their perfect <strong>match</strong>!</h1>
@@ -28,35 +13,31 @@
   </div>
 </div>
 
-<% @dogs.each do |dog| %>
-<%= link_to dog.name, dog_path(dog) %>
-<% end %>
-
-<div>
-  Toggle option
-</div>
-
-<div>
-  Map
-</div>
-
-<div class="container shadow-sm p-3 mb-5 bg-white rounded">
+<div class="container shadow-sm p-3 pb-5 mb-5 bg-white rounded">
   <div class="row">
-    <div class="col-sm-3">
-      <div class="card-dog">
-        <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80" class= "img-fluid"/>
+    <% @dogs.each do |dog| %>
+      <div class="col-sm-3 py-3">
+        <div class="card-dog">
+          <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80" class= "img-fluid"/>
           <div class="card-dog-infos">
             <div>
-              <h2>Bobby</h2>
-              <p>Pug</p>
+              <h2><%= dog.name %></h2>
+              <p><%= dog.breed %></p>
             </div>
-              <!-- <h2 class="card-dog-gender">Female</h2> -->
-              <h2 class= "card-dog-gender fas fa-venus"></h2>
-              <!-- <p class= "fas fa-paw"></p> -->
+            <!-- <h2 class="card-dog-gender">Female</h2> -->
+            <h2 class= "card-dog-gender fas fa-venus"></h2>
+            <!-- <p class= "fas fa-paw"></p> -->
           </div>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-3">
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container shadow-sm p-3 pb-5 mb-5 bg-white rounded">
+  <div class="row">
+   <div class="col-sm-3 py-3">
       <div class="card-dog">
         <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80" class= "img-fluid"/>
           <div class="card-dog-infos">
@@ -69,7 +50,7 @@
           </div>
       </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3 py-3">
       <div class="card-dog">
         <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80" class= "img-fluid"/>
           <div class="card-dog-infos">
@@ -82,7 +63,20 @@
           </div>
       </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3 py-3">
+      <div class="card-dog">
+        <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80" class= "img-fluid"/>
+          <div class="card-dog-infos">
+            <div>
+              <h2>Bobby</h2>
+              <p>Pug</p>
+            </div>
+              <!-- <h2 class="card-dog-gender">Female</h2> -->
+              <h2 class="card-dog-gender fas fa-venus"></h2>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-3 py-3">
       <div class="card-dog">
         <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80" class= "img-fluid"/>
           <div class="card-dog-infos">
