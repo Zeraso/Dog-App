@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="navbar-container">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "Logo.png" %>
+      <%= image_tag "logo.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to('Sign In', new_user_session_path) %>
+            <%= link_to('Sign Up', new_registration_path(resource_name)) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to('Log In', user_session_path) %>
           </li>
         <% end %>
 
@@ -39,7 +42,7 @@
               <%= link_to "Settings", "#", class: "dropdown-item" %>
               <%= link_to "Your match", "#", class: "dropdown-item" %>
           <% else %>
-            <%= image_tag "Avatar Logout", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "avatar_logout", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           </div>
         </li>
