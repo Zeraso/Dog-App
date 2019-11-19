@@ -1,3 +1,6 @@
+.navbar {
+  display: flex;
+}
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -8,11 +11,20 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 80px;
 }
 
 .search-form-control {
-  position: relative;
+  position: absolute;
+  padding: 3px 3px;
+  margin: 2px 2px;
+  left: 100px;
+  top: 15px;
+  display: flex;
+
+  input {
+    flex-grow:1;
+  }
 }
 
 .search-form-control .btn {
@@ -27,7 +39,6 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
   background: white;
-  left: 100px;
 }
 
 .search-form-control .form-control:focus {
@@ -43,3 +54,24 @@
 .dropdown-menu {
     background: white;
 }
+
+.navbar-container {
+  padding-right: 60px;
+  width: 800px;
+  display: flex;
+  form {
+    flex-grow: 1;
+    display: flex;
+  }
+  .form-control {
+    flex-grow: 1;
+    background: white;
+  }
+}
+
+@media(max-width: 750px) {
+  .navbar-container form {
+    display: none;
+  }
+}
+
