@@ -4,7 +4,7 @@
   <div class="container">
     <h1>Enjoyed your last adventure ? Book a new one <strong></strong>!</h1>
     <p>Future meetings.</p>
-    <%= link_to "New Meeting", new_meeting_path, class: "btn btn-primary" %>
+    <%= link_to "New Meeting", dogs_path, class: "btn btn-primary" %>
   </div>
 </div>
 
@@ -13,7 +13,7 @@
     <% @meetings.each do |meeting| %>
       <div class="col-sm-3 py-3">
         <div class="card-dog">
-          <img src="https://source.unsplash.com/1600x900/?dog,<%= dog.breed %>,breed,cute" class= "img-fluid"/>
+          <img src="https://source.unsplash.com/1600x900/?dog,<%= meeting.dog.breed %>,breed,cute" class= "img-fluid"/>
           <div class="card-dog-infos">
             <div>
               <h2><%= meeting.date %></h2>
