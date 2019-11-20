@@ -12,16 +12,21 @@
   <div class="row my-3">
     <% @meetings.each do |meeting| %>
       <div class="col-sm-3 py-3">
+        <%= link_to meeting_path(meeting) do %>
         <div class="card-dog">
-          <img src="https://source.unsplash.com/1600x900/?dog,<%= meeting.dog.breed %>,breed,cute" class= "img-fluid"/>
+          <% if meeting.dog.photos.attached? %>
+          <% meeting.dog.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+          <% end %>
           <div class="card-dog-infos">
             <div>
-              <h2><%= meeting.date %></h2>
-              <p><%= meeting.dog.name %></p>
-              <h3><%= meeting.dog.breed %></h3>
+              <h2>Your appointment: <%= meeting.date %></h2>
+              <p style="font-size: 20px">With <%= meeting.dog.name %> a <%= meeting.dog.breed %></p>
             </div>
           </div>
         </div>
+        <% end %>
       </div>
     <% end %>
     </div>
