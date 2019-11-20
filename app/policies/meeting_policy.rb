@@ -1,8 +1,19 @@
 class MeetingPolicy < ApplicationPolicy
-  class Scope < Scope
+  def show?
+    true
+  end
 
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
+  class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.all
     end
   end
 end
