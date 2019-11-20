@@ -6,6 +6,10 @@
   border-radius: 6px;
 }
 
+// .card-dog-master :hover {
+//   transform: translateY(-2px);
+// }
+
 .card-dog > img {
   height: 200px;
   width: 100%;
@@ -38,4 +42,12 @@
   top: 19px;
   width: 40px;
   font-size: 30px;
+}
+
+.card-link {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
