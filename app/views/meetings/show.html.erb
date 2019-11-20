@@ -1,0 +1,16 @@
+  <ul>
+    <li>date: <%= @meeting.date %></li>
+    <li>content: <%= @meeting.comment %></li>
+    <li>status: <%= @meeting.status %></li>
+    <li>rating <%= @meeting.rating %></li>
+  </ul>
+
+<%# if policy(@meeting).destroy? %>
+<%#= link_to "delete", @meeting,
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    <%# end %>
+
+  <%# if policy(@meeting).edit? %>
+    <%#= link_to "Update", edit_meeting_path(@meeting) %>
+  <%# end %>
