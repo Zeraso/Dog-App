@@ -1,5 +1,6 @@
 .navbar {
   display: flex;
+  padding: 0px 0px;
 }
 .navbar-lewagon {
   justify-content: space-between;
@@ -72,3 +73,32 @@
 .dropdown-menu {
     background: white;
 }
+
+.nav-item a {
+  opacity: 0.8;
+}
+
+.nav-item a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+.avatar {
+  width: 50px;
+}
+
+.navbar-expand-sm .navbar-nav {
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-brand h2 {
+  color: #D3604C;
+}
+
+
