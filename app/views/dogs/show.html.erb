@@ -1,6 +1,6 @@
 <div class="container vh-100">
 
-<h1>You chose <%= @dog.name %></h1>
+<h1><%= @dog.user.first_name %> do you like <%= @dog.name %>?</h1>
   <ul>
     <li>Name: <%= @dog.name %></li>
     <li>Birthday: <%= @dog.birthday %></li>
@@ -18,16 +18,16 @@
   <%# end %>
 
 <% if policy(@dog).destroy? %>
-<%= link_to "delete", @dog,
+<%= link_to "delete", @dog, class: 'btn btn-primary',
       method: :delete,
-      data: { confirm: "Are you sure?" } %>
+      data: { confirm: "Are you sure?" }  %>
     <% end %>
-<%= link_to "go back to homepage", dogs_path %>
+<%= link_to "go back to homepage", dogs_path, class: 'btn btn-primary'  %>
   <% if policy(@dog).edit? %>
-    <%= link_to "Update", edit_dog_path(@dog) %>
+    <%= link_to "Update", edit_dog_path(@dog),  class: 'btn btn-primary' %>
   <% end %>
 
-<%= link_to "Rent the Dog", new_dog_meeting_path(@dog)  %>
+<%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
 
 <div
   id="map"

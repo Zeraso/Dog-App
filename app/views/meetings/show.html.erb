@@ -5,8 +5,8 @@
     <li>rating <%= @meeting.rating %></li>
   </ul>
 
-  <%= link_to "Home Page", dogs_path %>
-  <%= link_to "All your meetings", meetings_path %>
+  <%= link_to "Home Page", dogs_path, class: 'btn btn-primary'  %>
+  <%= link_to "All your meetings", meetings_path, class: 'btn btn-primary'  %>
 
 <%# if policy(@meeting).destroy? %>
 <%#= link_to "delete", @meeting,
