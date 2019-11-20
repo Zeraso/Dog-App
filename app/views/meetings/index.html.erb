@@ -2,3 +2,8 @@
 <h2><%= meeting.date %></h2>
 <p><%= meeting.status %></p>
 <% end %>
+
+<% @other_meetings.each do |meeting| %>
+<h2><%= meeting.date %></h2>
+<p><%= meeting.status %></p>
+<% end %>

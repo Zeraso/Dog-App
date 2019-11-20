@@ -2,7 +2,10 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meetings = policy_scope(Meeting).order(created_at: :desc)
+    # @meetings = policy_scope(Meeting).includes(:dog).order(created_at: :desc)
+    @meetings = policy_scope(Meeting).where(user: current_user)
+    @other_meetings = policy_scope(Meeting).includes(:dog).where('dog.user_id = ?', current_user.id).references(:dogs)
+    # User.includes(:posts).where('posts.name = ?', 'example').references(:posts)
   end
 
   def show
