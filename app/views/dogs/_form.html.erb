@@ -8,6 +8,7 @@
         <%= f.input :breed %>
         <%= f.input :coat %>
         <%= f.input :birthday %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>
