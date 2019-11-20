@@ -2,6 +2,7 @@
   background-size: cover;
   background-position: center;
   padding: 140px 0;
+  height: 100vh;
 }
 
 .banner h1 {
@@ -17,5 +18,9 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner .container {
+  padding-top: 140px;
 }
 
