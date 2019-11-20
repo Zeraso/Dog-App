@@ -4,7 +4,7 @@ class MeetingsController < ApplicationController
   def index
     # @meetings = policy_scope(Meeting).includes(:dog).order(created_at: :desc)
     @meetings = policy_scope(Meeting).where(user: current_user)
-    @other_meetings = policy_scope(Meeting).includes(:dog).where('dog.user_id = ?', current_user.id).references(:dogs)
+    @other_meetings = policy_scope(Meeting).includes(:dog).where('dogs.user_id = ?', current_user.id).references(:dogs)
     # User.includes(:posts).where('posts.name = ?', 'example').references(:posts)
   end
 
@@ -13,15 +13,18 @@ class MeetingsController < ApplicationController
 
   def new
     @meeting = Meeting.new
+    @dog = Dog.find(params[:dog_id])
     authorize @meeting
   end
 
   def create
     @meeting = Meeting.new(meeting_params)
     authorize @meeting
+    @meeting.dog = Dog.find(params[:dog_id])
     @meeting.user = current_user
+
     if @meeting.save
-      redirect_to meeting_path(@meeting)
+      redirect_to dog_meeting_path(@meeting.dog, @meeting)
     else
       render :new
     end

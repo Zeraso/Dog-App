@@ -1,5 +1,4 @@
 class MeetingPolicy < ApplicationPolicy
-
   def show?
     true
   end
@@ -8,12 +7,11 @@ class MeetingPolicy < ApplicationPolicy
     true
   end
 
-   def create?
+  def create?
     true
   end
 
   class Scope < Scope
-
     def resolve
       scope.all
     end

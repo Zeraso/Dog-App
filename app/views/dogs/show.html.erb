@@ -7,6 +7,14 @@
     <li>Coat <%= @dog.coat %></li>
   </ul>
 
+  <% @meetings.each do |meeting| %>
+    <%= meeting.date %>
+    <%= meeting.comment %>
+    <%= meeting.status %>
+    <%= meeting.rating %>
+    <%= meeting.user.last_name %>
+  <% end %>
+
 <% if policy(@dog).destroy? %>
 <%= link_to "delete", @dog,
       method: :delete,
@@ -16,3 +24,4 @@
   <% if policy(@dog).edit? %>
     <%= link_to "Update", edit_dog_path(@dog) %>
   <% end %>
+<%= link_to "Rent the Dog", new_dog_meeting_path(@dog)  %>

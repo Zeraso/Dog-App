@@ -1,6 +1,6 @@
   <ul>
     <li>date: <%= @meeting.date %></li>
-    <li>content: <%= @meeting.content %></li>
+    <li>content: <%= @meeting.comment %></li>
     <li>status: <%= @meeting.status %></li>
     <li>rating <%= @meeting.rating %></li>
   </ul>
@@ -10,7 +10,7 @@
       method: :delete,
       data: { confirm: "Are you sure?" } %>
     <%# end %>
-<%= link_to "go back to homepage", meetings_path %>
+
   <%# if policy(@meeting).edit? %>
     <%#= link_to "Update", edit_meeting_path(@meeting) %>
   <%# end %>
