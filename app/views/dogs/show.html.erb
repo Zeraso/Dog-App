@@ -1,3 +1,5 @@
+<div class="container vh-100">
+
 <h1>You chose <%= @dog.name %></h1>
   <ul>
     <li>Name: <%= @dog.name %></li>
@@ -16,3 +18,5 @@
   <% if policy(@dog).edit? %>
     <%= link_to "Update", edit_dog_path(@dog) %>
   <% end %>
+
+  </div>
