@@ -14,5 +14,8 @@
 
 body {
   position:relative;
-  min-height: 100%;
+}
+
+.content {
+  min-height: calc(100vh - 150px);
 }

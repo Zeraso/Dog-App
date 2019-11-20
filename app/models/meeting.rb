@@ -4,6 +4,4 @@ class Meeting < ApplicationRecord
 
   validates :date, presence: true
   validates :comment, presence: true
-  validates :status, presence: true
-  validates :rating, presence: true
 end
