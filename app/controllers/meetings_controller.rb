@@ -24,7 +24,7 @@ class MeetingsController < ApplicationController
     @meeting.user = current_user
 
     if @meeting.save
-      redirect_to dog_meeting_path(@meeting.dog, @meeting)
+      redirect_to meeting_path(@meeting)
     else
       render :new
     end
