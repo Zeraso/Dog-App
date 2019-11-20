@@ -19,7 +19,14 @@
       <div class="col-sm-3 py-3">
       <%= link_to dog_path(dog) do %>
         <div class="card-dog">
-          <img src="https://source.unsplash.com/1600x900/?dog,<%= dog.breed %>,breed,cute" class= "img-fluid"/>
+          <% if dog.photos.attached? %>
+            <% dog.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+          <% else %>
+            <img src="https://source.unsplash.com/1600x900/?dog,<%= dog.breed %>,breed,cute" class= "img-fluid"/>
+          <% end %>
+          <!-- <img src="https://source.unsplash.com/1600x900/?dog,<%= dog.breed %>,breed,cute" class= "img-fluid"/> -->
           <div class="card-dog-infos">
             <div>
               <h2><%= dog.name %></h2>
@@ -41,4 +48,5 @@
 </div>
 
 <!-- https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1587&q=80 -->
+
 
