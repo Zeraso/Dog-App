@@ -5,6 +5,7 @@ class DogsController < ApplicationController
   end
 
   def show
+    @meetings = @dog.meetings
   end
 
   def new
