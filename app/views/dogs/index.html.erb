@@ -17,6 +17,7 @@
   <div class="row my-3">
     <% @dogs.each do |dog| %>
       <div class="col-sm-3 py-3">
+      <%= link_to dog_path(dog) do %>
         <div class="card-dog">
           <img src="https://source.unsplash.com/1600x900/?dog,<%= dog.breed %>,breed,cute" class= "img-fluid"/>
           <div class="card-dog-infos">
@@ -29,11 +30,12 @@
               <h2 class= "card-dog-gender fas fa-venus"></h2>
             <% else dog.gender == "Male" %>
               <h2 class= "card-dog-gender fas fa-mars"></h2>
-            <% end %>
+              <% end %>
             <!-- <p class= "fas fa-paw"></p> -->
           </div>
         </div>
       </div>
+      <% end %>
     <% end %>
     </div>
 </div>
