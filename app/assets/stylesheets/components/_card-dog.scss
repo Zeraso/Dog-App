@@ -4,6 +4,10 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 100%;
   border-radius: 6px;
+  color: black;
+  width: 100%;
+  opacity: 1;
+  transition: all .3s ease;
 }
 
 // .card-dog-master :hover {
@@ -50,4 +54,15 @@
   bottom: 0;
   right: 0;
   left: 0;
+}
+
+.card-dog:hover {
+  transform: translateY(-10px);
+  transition: all .3s ease;
+}
+
+.row a:hover {
+  text-decoration: none;
+  opacity: 0.6;
+  transition: all .3s ease;
 }
