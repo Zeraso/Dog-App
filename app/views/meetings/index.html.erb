@@ -58,6 +58,26 @@
           </li>
           </ul>
         </div>
+        <div class="meeting-infos">
+          <h2>Meeting</h2>
+          <ul>
+          <li>
+           On <%= meeting.date %>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <% if meeting.dog.status == "validate" %>
+      <div class="status">
+        <p>Validated</p>
+      </div>
+      <% elsif meeting.dog.status == "refuse" %>
+      <div class="status">
+        <p>Refused</p>
+      </div>
+      <% else %>
+      <div class="status">
+        <p>Pending..</p>
       </div>
     </div>
         <% end %>
@@ -124,6 +144,21 @@
           </li>
           </ul>
         </div>
+        <div class="meeting-infos">
+          <h2>Meeting</h2>
+          <ul>
+          <li>
+           On <%= meeting.date %>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div class="validation">
+        <%= link_to "✔️", validate_meeting_path %>
+      </div>
+      <div class="canceling">
+        <%= link_to "❌", refuse_meeting_path %>
+
       </div>
     </div>
         <% end %>

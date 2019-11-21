@@ -56,6 +56,20 @@
 text-align: center;
 }
 
+.meeting-infos {
+  text-align:center;
+  margin: 0px auto;
+}
+
+.meeting-infos ul {
+  list-style:  none;
+  margin-left: -40px;
+}
+
+.meeting-infos h2 {
+  text-align: center;
+}
+
 .user-infos ul {
   list-style:  none;
 }
@@ -68,15 +82,6 @@ text-align: center;
   padding-right: 15px;
 }
 
-.status {
-  position: absolute;
-  background-color:#D3604C;
-  left: 1163px;
-  top: 225px;
-  color:white;
-  border-radius: 6px;
-  padding: 0px 8px;
-}
 .my_photo img {
   border-radius: 50%;
 }
@@ -86,4 +91,43 @@ text-align: center;
 
 .photos {
   background-color: #FEEAD1;
+}
+
+.status {
+  position: absolute;
+  top: 93px;
+  left: 789px;
+  background-color:#F6D055;
+  color:white;
+  border-radius: 4px;
+}
+
+.status p {
+  margin: 2px 6px;
+}
+
+.validation {
+  position:absolute;
+  font-size: 50px;
+  top: 69px;
+  left: 800px;
+}
+
+.validation a {
+  color:#27B24A;
+}
+
+.validation a:hover {
+  text-decoration: none;
+}
+
+.canceling {
+  position:absolute;
+  font-size: 30px;
+  top: 85px;
+  left: 856px;
+}
+
+.canceling a:hover {
+  text-decoration: none;
 }
