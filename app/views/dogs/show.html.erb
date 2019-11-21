@@ -1,13 +1,5 @@
-<div class="container vh-100">
 
-<h1><%= @dog.user.first_name %> do you like <%= @dog.name %>?</h1>
-  <ul>
-    <li>Name: <%= @dog.name %></li>
-    <li>Birthday: <%= @dog.birthday %></li>
-    <li>Gender: <%= @dog.gender %></li>
-    <li>Breed <%= @dog.breed %></li>
-    <li>Coat <%= @dog.coat %></li>
-  </ul>
+
 
   <%# @meetings.each do |meeting| %>
     <%#= meeting.date %>
@@ -17,28 +9,58 @@
     <%#= meeting.user.last_name %>
   <%# end %>
 
-<% if policy(@dog).destroy? %>
-<%= link_to "delete", @dog, class: 'btn btn-primary',
-      method: :delete,
-      data: { confirm: "Are you sure?" }  %>
-    <% end %>
-<%= link_to "go back to homepage", dogs_path, class: 'btn btn-primary'  %>
-  <% if policy(@dog).edit? %>
-    <%= link_to "Update", edit_dog_path(@dog),  class: 'btn btn-primary' %>
-  <% end %>
+<div class="container">
+  <h1><%= @dog.user.first_name %> do you like <%= @dog.name %>?</h1>
+  <div class="card-dog-master shadow-sm p-2 bg-white rounded">
+    <div class="row my-1 mx-auto">
+      <div class="col-sm-8">
+        <div class="card-show-dog row">
+          <div class="card-dog-infos col-sm-8">
+            <img src="https://source.unsplash.com/1600x900/?dog,breed,cute" class= "img-fluid"/>
+          </div>
+          <div class="card-dog-infos col-sm-4">
+            <div class="card-dog-intel">
+              <h2><%= @dog.name %></h2>
+              <ul>
+                <li>Born <%= @dog.birthday %></li>
+                <li><%= @dog.gender %></li>
+                <li>Breed :<%= @dog.breed %></li>
+                <li>Coat :<%= @dog.coat %></li>
+              </ul>
+            </div>
+            <div class="card-dog-actions">
+              <% if policy(@dog).destroy? %>
+                <%= link_to "delete", @dog, class: 'btn btn-primary',
+                    method: :delete,
+                    data: { confirm: "Are you sure?" }  %>
+              <% end %>
+              <% if policy(@dog).edit? %>
+                <%= link_to "Update", edit_dog_path(@dog),  class: 'btn btn-primary' %>
+              <% end %>
 
-<%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
-
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @marker.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-
+              <%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card-show-dog" height="400">
+          <div
+            id="map"
+            style="width: auto;
+            height: 200px;"
+            data-markers="<%= @marker.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          <div class="card-owner-infos">
+            Owner info :
+            First_Name <br>
+            City <br>
+            Status <br>
+            Member since
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-

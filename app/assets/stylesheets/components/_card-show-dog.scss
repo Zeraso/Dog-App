@@ -1,0 +1,90 @@
+.card-show-dog {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+  border-radius: 6px;
+  color: black;
+  height: 400px;
+  opacity: 1;
+  transition: all .3s ease;
+}
+
+// .card-dog-master :hover {
+//   transform: translateY(-2px);
+// }
+
+.card-show-dog > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-show-dog h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-show-dog p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-show-dog .card-dog-infos {
+  // padding: 16px;
+  display: flex;
+  padding: 0px;
+  justify-content: space-between;
+  // align-items: flex-end;
+  position: relative;
+}
+
+.card-show-dog .card-owner-infos {
+  // padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  // align-items: flex-end;
+  position: relative;
+}
+
+.card-dog-infos .card-dog-intel {
+  position: absolute;
+  // right: -4px;
+  // top: 19px;
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.card-dog-infos .card-dog-actions {
+  position: absolute;
+  // right: -4px;
+  // top: 19px;
+  bottom: 20px;
+  height: 100px;
+  width: auto;
+  font-size: 16px;
+}
+
+.card-link {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.card-show-dog:hover {
+  transform: translateY(-10px);
+  transition: all .3s ease;
+}
+
+.row a:hover {
+  text-decoration: none;
+  opacity: 0.6;
+  transition: all .3s ease;
+}
+
