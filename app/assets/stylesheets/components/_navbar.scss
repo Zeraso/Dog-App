@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
   padding: 0px 0px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 .navbar-lewagon {
   justify-content: space-between;
@@ -107,4 +108,8 @@ h2 :hover {
 
 .navbar-expand-sm .navbar-nav {
   align-items: center;
+}
+
+.fas fa-envelope {
+  font-family: arial;
 }
