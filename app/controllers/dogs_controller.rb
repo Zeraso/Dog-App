@@ -2,21 +2,33 @@ class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
   def index
     @dogs = policy_scope(Dog).order(created_at: :desc)
+
+    if params[:search].present?
+      @query = params[:search][:query]
+      @radius = params[:search][:radius]
+      if @query.present?
+        # Premiere query pour sélectionner chiens par race
+        # Chaîner une 2e query .near pour les chiens les plus proches
+        @dogs = Dog.where('breed ILIKE ?', "%#{@query}%").near(current_user.address, @radius = 5)
+      else
+        @dogs = Dog.geocoded
+      end
+    end
+
     @markers = @dogs.map do |dog|
       {
         lat: dog.latitude,
-        lng: dog.longitude
+        lng: dog.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { dog: dog })
       }
     end
   end
 
   def show
-
     @dog = Dog.find(params[:id])
     @marker = [{ lat: @dog.latitude, lng: @dog.longitude }]
 
     @meetings = @dog.meetings
-
   end
 
   def new
