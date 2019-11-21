@@ -12,7 +12,22 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 80px;
+  width: 100px;
+}
+
+
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h2 {
+    margin-top: 10px;
+}
+
+h2 :hover {
+  text-decoration: none;
 }
 
 .search-form-control {
@@ -63,7 +78,9 @@
 .nav-item {
   padding: 5px 10px;
   margin-top: 10px;
+  margin-right: 20px;
   font-size: 20px;
+  inline-size: max-content;
 }
 
 .dropdown-item {
@@ -84,21 +101,9 @@
 }
 
 .avatar {
-  width: 50px;
+  width: 80px;
 }
 
 .navbar-expand-sm .navbar-nav {
   align-items: center;
 }
-
-.navbar-brand {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.navbar-brand h2 {
-  color: #D3604C;
-}
-
-
