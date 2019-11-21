@@ -1,45 +1,72 @@
-<div class="container vh-100">
 
-  <h1><%= @dog.user.first_name %> do you like <%= @dog.name %>?</h1>
-  <ul>
-    <li>Name: <%= @dog.name %></li>
-    <li>Age: <%= Date.today.year - @dog.birthday.year %></li>
-    <li>Gender: <%= @dog.gender %></li>
-    <li>Breed: <%= @dog.breed %></li>
-    <li>Coat: <%= @dog.coat %></li>
-  </ul>
-
-  <%# @meetings.each do |meeting| %>
-    <%#= meeting.date %>
-    <%#= meeting.comment %>
-    <%#= meeting.status %>
-    <%#= meeting.rating %>
-    <%#= meeting.user.last_name %>
-  <%# end %>
-
-  <% if policy(@dog).destroy? %>
-    <%= link_to "delete", @dog, class: 'btn btn-primary',
-        method: :delete,
-        data: { confirm: "Are you sure?" }  %>
-  <% end %>
-  <%= link_to "go back to homepage", dogs_path, class: 'btn btn-primary'  %>
-
-  <% if policy(@dog).edit? %>
-    <%= link_to "Update", edit_dog_path(@dog),  class: 'btn btn-primary' %>
-  <% else %>
-    <%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
-  <% end %>
-
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @marker.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-
+<div class="container mt-3 pt-5">
+  <h1 class="text-center pb-3"><%= @dog.user.first_name %>, do you like <strong><%= @dog.name %></strong> ?</h1>
+  <div class="card-dog-master shadow-sm p-2 bg-white rounded">
+    <div class="row my-1 mx-auto">
+      <div class="col-sm-8">
+        <div class="card-show-dog row">
+          <div class="card-dog-infos col-sm-8">
+            <img src="https://source.unsplash.com/1600x900/?dog,breed,cute" class= "img-fluid"/>
+          </div>
+          <div class="card-dog-infos col-sm-4">
+            <div class="card-dog-intel pt-4">
+              <h2 class="font-weight-bold"><%= @dog.name %>
+                  <% if @dog.gender == "Female" %>
+                    <i class= "fas fa-venus"></i>
+                  <% else @dog.gender == "Male" %>
+                    <i class= "fas fa-mars"></i>
+                  <% end %>
+              </h2>
+              <ul class="pt-5">
+                <li><% now = Date.today %>
+                  <%= year = now.year - @dog.birthday.year %>
+                  <% if (@dog.birthday+year.year) > now %>
+                  <% year = year - 1 %>
+                  <% end %>years old
+                </li>
+                <li><%= @dog.gender %></li>
+                <li><strong><%= @dog.breed %></strong></li>
+                <li>Coat <%= @dog.coat %></li>
+              </ul>
+            </div>
+            <div class="card-dog-actions">
+              <div class="p-2">
+              <% if policy(@dog).destroy? %>
+                <%= link_to "Delete", @dog, class: 'btn btn-primary',
+                    method: :delete,
+                    data: { confirm: "Are you sure?" }  %>
+              <% end %>
+              </div>
+              <div class="p-2">
+              <% if policy(@dog).edit? %>
+                <%= link_to "Update", edit_dog_path(@dog),  class: 'btn btn-primary' %>
+              <% end %>
+              </div>
+              <div class="p-2">
+              <%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card-show-dog" height="400">
+          <div
+            id="map"
+            style="width: auto;
+            height: 200px;"
+            data-markers="<%= @marker.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          <div class="card-owner-infos pl-4 pt-5 ">
+            <ul>
+            <li><strong><%= @dog.user.first_name %></strong></li>
+            <li><%= @dog.user.status %></li>
+            <li>Member since <strong><%= @dog.user.created_at.strftime("%d/%m/%Y") %></strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-
