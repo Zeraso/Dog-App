@@ -1,3 +1,5 @@
+<%= render 'modal_edit_dog' %>
+<%= render 'modal_new_meeting' %>
 
 <div class="container mt-3 pt-5">
   <h1 class="text-center pb-3"><%= @dog.user.first_name %>, do you like <strong><%= @dog.name %></strong> ?</h1>
@@ -29,7 +31,7 @@
                 <li>Coat <%= @dog.coat %></li>
               </ul>
             </div>
-            <div class="card-dog-actions">
+            <div class="card-dog-actions d-flex">
               <div class="p-2">
               <% if policy(@dog).destroy? %>
                 <%= link_to "Delete", @dog, class: 'btn btn-primary',
@@ -38,12 +40,11 @@
               <% end %>
               </div>
               <div class="p-2">
-              <% if policy(@dog).edit? %>
-                <%= link_to "Update", edit_dog_path(@dog),  class: 'btn btn-primary' %>
-              <% end %>
-              </div>
-              <div class="p-2">
-              <%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
+                <% if policy(@dog).edit? %>
+                  <%= link_to "Update", edit_dog_path(@dog),  class: 'btn btn-primary' %>
+                <% else %>
+                  <%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
+                <% end %>
               </div>
             </div>
           </div>
