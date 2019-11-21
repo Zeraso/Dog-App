@@ -29,5 +29,24 @@
         <% end %>
       </div>
     <% end %>
+    <% @other_meetings.each do |meeting| %>
+      <div class="col-sm-3 py-3">
+        <%= link_to meeting_path(meeting) do %>
+        <div class="card-dog">
+          <% if meeting.dog.photos.attached? %>
+          <% meeting.dog.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+          <% end %>
+          <div class="card-dog-infos">
+            <div>
+              <h2>Your appointment: <%= meeting.date %></h2>
+              <p style="font-size: 20px">With <%= meeting.dog.name %> a <%= meeting.dog.breed %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
     </div>
 </div>
