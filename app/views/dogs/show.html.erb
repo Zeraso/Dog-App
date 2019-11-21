@@ -1,6 +1,10 @@
 <%= render 'modal_edit_dog' %>
 <%= render 'modal_new_meeting' %>
 
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+ -->
 <div class="container mt-3 pt-5">
   <h1 class="text-center pb-3"><%= @dog.user.first_name %>, do you like <strong><%= @dog.name %></strong> ?</h1>
   <div class="card-dog-master shadow-sm p-2 bg-white rounded">
@@ -41,9 +45,14 @@
               </div>
               <div class="p-2">
                 <% if policy(@dog).edit? %>
-                  <%= link_to "Update", edit_dog_path(@dog),  class: 'btn btn-primary' %>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editdogModal">
+                    Change details
+                  </button>
                 <% else %>
                   <%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newmeetingModal">
+                    Meet <%= @dog.name %>
+                  </button>
                 <% end %>
               </div>
             </div>
