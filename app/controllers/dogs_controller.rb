@@ -1,22 +1,38 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
+
   def index
-    @dogs = policy_scope(Dog).order(created_at: :desc)
+    @dogs = policy_scope(Dog).order(created_at: :desc).where(available: true)
+    @breed = params[:breed]
+    @radius = params[:radius]
+    @gender = params[:gender]
+    if @breed.present? && @gender != "Any"
+      @dogs = Dog.where('breed ILIKE ? AND gender ILIKE ?', "%#{@breed}%", @gender)
+                 .near(current_user.address, @radius = 5)
+    elsif @breed.present? && @gender == "Any"
+      @dogs = Dog.where('breed ILIKE ?', "%#{@breed}%")
+                 .near(current_user.address, @radius = 5)
+    elsif @gender == "Any"
+      @dogs = Dog.geocoded.near(current_user.address, @radius = 5)
+    else
+      @dogs = Dog.geocoded.where('gender ILIKE ?', @gender)
+                 .near(current_user.address, @radius = 5)
+    end
+
     @markers = @dogs.map do |dog|
       {
         lat: dog.latitude,
-        lng: dog.longitude
+        lng: dog.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { dog: dog })
       }
     end
   end
 
   def show
-
     @dog = Dog.find(params[:id])
     @marker = [{ lat: @dog.latitude, lng: @dog.longitude }]
 
     @meetings = @dog.meetings
-
   end
 
   def new
@@ -51,10 +67,15 @@ class DogsController < ApplicationController
     redirect_to dogs_path
   end
 
+  def my_dogs
+    skip_authorization
+    @dogs = current_user.dogs
+  end
+
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :birthday, :coat, :gender, photos: [])
+    params.require(:dog).permit(:name, :breed, :birthday, :coat, :gender, :available, photos: [])
   end
 
   def set_dog

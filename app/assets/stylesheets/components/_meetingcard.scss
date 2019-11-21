@@ -9,6 +9,16 @@
   flex-direction: column;
 }
 
+.meeting-container h1 {
+  text-align:center;
+}
+
+.meeting-container p {
+  text-align:center;
+  font-size: 20px;
+}
+
+
 .meetingcard {
   margin-top: 10px;
   overflow: hidden;
@@ -46,10 +56,6 @@
 text-align: center;
 }
 
-.dog-infos {
-  margin-top: 15px;
-}
-
 .user-infos ul {
   list-style:  none;
 }
@@ -59,7 +65,6 @@ text-align: center;
 }
 
 .user-infos {
-  margin: 15px 0px;
   padding-right: 15px;
 }
 

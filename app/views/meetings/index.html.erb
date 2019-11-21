@@ -1,5 +1,10 @@
+
 <div class="main-container">
   <div class="meeting-container">
+  <h1>Your dog would like to meet:</h1>
+  <% if @meetings.empty? %>
+   <p>Hurry! Find a friend/lover for your doggy!</p>
+   <% else  %>
     <% @meetings.each do |meeting| %>
     <div class="meetingcard">
       <div class="row">
@@ -52,16 +57,79 @@
           </li>
           </ul>
         </div>
-
       </div>
     </div>
-<% end %>
-  </div>
-</div>
+        <% end %>
+        <% end %>
+    </div>
+    </div>
 
-</div>
-
-
+  <div class="main-container">
+  <div class="meeting-container">
+    <h1>Dogs who would like to meet yours:</h1>
+    <% if @other_meetings.empty? %>
+    <p>We're sorry your dog has no meetings :(</p>
+   <% else  %>
+    <% @other_meetings.each do |meeting| %>
+    <div class="meetingcard">
+      <div class="row">
+      <div class="photos">
+      <div class="row">
+      <div class="my_photo">
+        <% if meeting.dog.photos.attached? %>
+          <% meeting.dog.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 150, width: 150, radius: 100, crop: :fill%>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="heart">
+        <i class="fas fa-heart"></i>
+      </div>
+      <div class="photo">
+        <% meeting.user.dogs.each do |dog| %>
+        <% if dog.photos.attached? %>
+          <% dog.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 150, width: 150, radius: "max", crop: :fill  %>
+          <% end %>
+        <% end %>
+     </div>
+     </div>
+      </div>
+        <div class="dog-infos">
+          <h2><%= dog.name %></h2>
+          <ul>
+          <li>
+            -<strong>Breed</strong>: <%= dog.breed %>
+          </li>
+          <li>
+            -<strong>Coat</strong>: <%= dog.coat%>
+          </li>
+           <li>
+            -<strong>Gender</strong>: <%= dog.gender%>
+          </li>
+          <li>
+            -<strong>Birthday</strong>: <%= dog.birthday %>
+          </li>
+          </ul>
+        </div>
+        <div class="user-infos">
+          <h2><%= dog.user.first_name %></h2>
+          <ul>
+          <li>
+            -<strong>Email:</strong>: <%= dog.user.email %>
+          </li>
+          <li>
+            -<strong>Status</strong>: <%= dog.user.status %>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+        <% end %>
+        <% end %>
+        <% end %>
+    </div>
+    </div>
 
 
 

@@ -30,6 +30,22 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @meeting.update(meeting_params)
+      redirect_to meetings_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @meeting.destroy
+    redirect_to meetings_path
+  end
+
   private
 
   def meeting_params
