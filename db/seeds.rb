@@ -17,7 +17,8 @@ puts 'Creating 20 doggies...'
     birthday: "2018""12""12",
     gender: ["Female","Male"].sample,
     coat:Faker::Creature::Dog.coat_length,
-    user: User.first
+    user: User.first,
+    available: true
   )
   dog.save!
 end

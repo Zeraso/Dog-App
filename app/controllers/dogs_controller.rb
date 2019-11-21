@@ -1,7 +1,7 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
   def index
-    @dogs = policy_scope(Dog).order(created_at: :desc)
+    @dogs = policy_scope(Dog).order(created_at: :desc).where(available: true)
     @markers = @dogs.map do |dog|
       {
         lat: dog.latitude,
@@ -11,12 +11,10 @@ class DogsController < ApplicationController
   end
 
   def show
-
     @dog = Dog.find(params[:id])
     @marker = [{ lat: @dog.latitude, lng: @dog.longitude }]
 
     @meetings = @dog.meetings
-
   end
 
   def new
@@ -51,10 +49,15 @@ class DogsController < ApplicationController
     redirect_to dogs_path
   end
 
+  def my_dogs
+    skip_authorization
+    @dogs = current_user.dogs
+  end
+
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :birthday, :coat, :gender, photos: [])
+    params.require(:dog).permit(:name, :breed, :birthday, :coat, :gender, :available, photos: [])
   end
 
   def set_dog

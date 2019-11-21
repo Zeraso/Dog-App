@@ -5,6 +5,7 @@ class CreateDogs < ActiveRecord::Migration[5.2]
       t.string :race
       t.integer :age
       t.string :coat
+      t.boolean :available, default: false
 
       t.timestamps
     end
