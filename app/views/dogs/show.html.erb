@@ -3,10 +3,10 @@
   <h1><%= @dog.user.first_name %> do you like <%= @dog.name %>?</h1>
   <ul>
     <li>Name: <%= @dog.name %></li>
-    <li>Birthday: <%= @dog.birthday %></li>
+    <li>Age: <%= Date.today.year - @dog.birthday.year %></li>
     <li>Gender: <%= @dog.gender %></li>
-    <li>Breed <%= @dog.breed %></li>
-    <li>Coat <%= @dog.coat %></li>
+    <li>Breed: <%= @dog.breed %></li>
+    <li>Coat: <%= @dog.coat %></li>
   </ul>
 
   <%# @meetings.each do |meeting| %>
