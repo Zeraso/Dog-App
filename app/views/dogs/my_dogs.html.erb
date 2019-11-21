@@ -1,0 +1,33 @@
+<div class="container card-dog-master shadow-sm p-3 bg-white rounded">
+  <div class="row my-3">
+    <% @dogs.each do |dog| %>
+      <div class="col-sm-3 py-3">
+      <%= link_to dog_path(dog) do %>
+        <div class="card-dog">
+          <% if dog.photos.attached? %>
+            <% dog.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+          <% else %>
+            <img src="https://source.unsplash.com/1600x900/?dog,<%= dog.breed %>,breed,cute" class= "img-fluid"/>
+          <% end %>
+          <!-- <img src="https://source.unsplash.com/1600x900/?dog,<%= dog.breed %>,breed,cute" class= "img-fluid"/> -->
+          <div class="card-dog-infos">
+            <div>
+              <h2><%= dog.name %></h2>
+              <p><%= dog.breed %></p>
+            </div>
+            <!-- <h2 class="card-dog-gender">Female</h2> -->
+            <% if dog.gender == "Female" %>
+              <h2 class= "card-dog-gender fas fa-venus"></h2>
+            <% else dog.gender == "Male" %>
+              <h2 class= "card-dog-gender fas fa-mars"></h2>
+              <% end %>
+            <!-- <p class= "fas fa-paw"></p> -->
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+    </div>
+</div>

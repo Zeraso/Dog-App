@@ -24,10 +24,26 @@ class MeetingsController < ApplicationController
     @meeting.user = current_user
 
     if @meeting.save
-      redirect_to dog_meeting_path(@meeting.dog, @meeting)
+      redirect_to meetings_path
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @meeting.update(meeting_params)
+      redirect_to meetings_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @meeting.destroy
+    redirect_to meetings_path
   end
 
   private
