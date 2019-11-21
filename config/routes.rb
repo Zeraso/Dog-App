@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'dogs#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :dogs do
-    resources :meetings, only: [:new, :create ]
+    resources :meetings, only: [:new, :create]
   end
-  resources :meetings, only: [:index, :show]
+  resources :meetings, only: [:index, :show, :edit, :update, :destroy]
 end
