@@ -2,10 +2,19 @@
   <div class="container">
     <h1>Find them a perfect <strong>match</strong>!</h1>
     <p>Discover the best soulmate for your compagnon.</p>
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-        <div class="search-form-control form-group">
-          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-          <button name="button" type="submit" class="btn btn-primary">
+      <%= simple_form_for :search, url: root_path, method: :get, html: {class: "form-inline"} do |f| %>
+        <div class="search-form-control form-group w-50 mr-3">
+          <input class="form-control string required" placeholder="Search a breed" type="text" name="breed" id="search_query" value="<%= @breed %>" />
+        </div>
+        <div class="form-group">
+          <%= label_tag :gender, "Male", class:"mr-2 ml-2 text-white" %>
+          <%= radio_button_tag :gender, "Male", class:"form-control" %>
+          <%= label_tag :gender, "Female", class:"mr-2 ml-2 text-white" %>
+          <%= radio_button_tag :gender, "Female", class:"form-control" %>
+          <%= label_tag :gender, "Any gender", class:"mr-2 ml-2 text-white" %>
+          <%= radio_button_tag :gender, "Any", :checked, class:"form-control" %>
+        </div>
+          <button name="button" type="submit" class="btn btn-primary ml-3">
           <i class="fas fa-search"></i> Search
           </button>
         </div>
