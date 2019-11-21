@@ -93,7 +93,7 @@ text-align: center;
   background-color: #FEEAD1;
 }
 
-.status {
+.status-pending {
   position: absolute;
   top: 93px;
   left: 789px;
@@ -102,7 +102,7 @@ text-align: center;
   border-radius: 4px;
 }
 
-.status p {
+.status-pending p {
   margin: 2px 6px;
 }
 
@@ -130,4 +130,30 @@ text-align: center;
 
 .canceling a:hover {
   text-decoration: none;
+}
+
+.status-validated {
+  position: absolute;
+  top: 93px;
+  left: 789px;
+  background-color:#27B24A;
+  color:white;
+  border-radius: 4px;
+}
+
+.status-validated p {
+  margin: 2px 6px;
+}
+
+.status-refused{
+  position: absolute;
+  top: 93px;
+  left: 795px;
+  background-color:#D60000;
+  color:white;
+  border-radius: 4px;
+}
+
+.status-refused p {
+  margin: 2px 6px;
 }
