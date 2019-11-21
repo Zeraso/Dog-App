@@ -67,18 +67,19 @@
           </ul>
         </div>
       </div>
-      <% if meeting.dog.status == "validate" %>
-      <div class="status">
+      <% if meeting.status == "validate" %>
+      <div class="status-validated">
         <p>Validated</p>
       </div>
-      <% elsif meeting.dog.status == "refuse" %>
-      <div class="status">
+      <% elsif meeting.status == "refuse" %>
+      <div class="status-refused">
         <p>Refused</p>
       </div>
       <% else %>
-      <div class="status">
+      <div class="status-pending">
         <p>Pending..</p>
       </div>
+      <% end %>
     </div>
         <% end %>
         <% end %>
@@ -154,10 +155,10 @@
         </div>
       </div>
       <div class="validation">
-        <%= link_to "✔️", validate_meeting_path %>
+        <%= link_to "✔️", validate_meeting_path(meeting) %>
       </div>
       <div class="canceling">
-        <%= link_to "❌", refuse_meeting_path %>
+        <%= link_to "❌", refuse_meeting_path(meeting) %>
 
       </div>
     </div>
