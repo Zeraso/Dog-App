@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_113331) do
   create_table "meetings", force: :cascade do |t|
     t.date "date"
     t.text "comment"
-    t.string "status"
+    t.string "status", default: "pending"
     t.integer "rating"
     t.bigint "dog_id"
     t.datetime "created_at", null: false

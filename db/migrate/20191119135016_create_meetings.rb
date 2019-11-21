@@ -3,7 +3,7 @@ class CreateMeetings < ActiveRecord::Migration[5.2]
     create_table :meetings do |t|
       t.date :date
       t.text :comment
-      t.string :status
+      t.string :status, default: "pending"
       t.integer :rating
       t.references :dog
 

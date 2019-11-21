@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   resources :dogs do
     resources :meetings, only: [:new, :create]
   end
-  resources :meetings, only: [:index, :show, :edit, :update, :destroy]
+  resources :meetings, only: [:index, :show, :edit, :update, :destroy] do
+    member do
+      get "validate"
+      get "refuse"
+    end
+  end
 end
