@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :set_meeting, only: [:show, :edit, :update, :destroy, :validate, :refuse]
 
   def index
     # @meetings = policy_scope(Meeting).includes(:dog).order(created_at: :desc)
@@ -43,6 +43,18 @@ class MeetingsController < ApplicationController
 
   def destroy
     @meeting.destroy
+    redirect_to meetings_path
+  end
+
+  def validate
+    @meeting.status = "validate"
+    @meeting.save
+    redirect_to meetings_path
+  end
+
+  def refuse
+    @meeting.status = "refuse"
+    @meeting.save
     redirect_to meetings_path
   end
 
