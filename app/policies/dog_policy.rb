@@ -1,4 +1,9 @@
 class DogPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
+  end
 
   def create?
     true
@@ -20,9 +25,8 @@ class DogPolicy < ApplicationPolicy
     record.user == user
   end
 
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+  def my_dogs?
+    true
   end
+
 end
