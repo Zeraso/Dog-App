@@ -1,0 +1,84 @@
+.main-container {
+  justify-content: center;
+  display: flex;
+  margin-top: 30px;
+}
+
+.meeting-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.meetingcard {
+  margin-top: 10px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  position:relative;
+  width: 950px;
+  margin-bottom: 10px;
+}
+
+.meetingcard .row {
+  margin: 0px 2px;
+}
+
+.heart {
+  position: absolute;
+  font-size: 55px;
+  left: 135px;
+  color: #E95281;
+  top: 43px;
+}
+
+.photos {
+  position: relative;
+  margin-left: -5px;
+  padding: 10px;
+}
+
+.dog-infos ul {
+  list-style:  none;
+}
+
+.dog-infos h2 {
+text-align: center;
+}
+
+.dog-infos {
+  margin-top: 15px;
+}
+
+.user-infos ul {
+  list-style:  none;
+}
+
+.user-infos h2 {
+text-align: center;
+}
+
+.user-infos {
+  margin: 15px 0px;
+  padding-right: 15px;
+}
+
+.status {
+  position: absolute;
+  background-color:#D3604C;
+  left: 1163px;
+  top: 225px;
+  color:white;
+  border-radius: 6px;
+  padding: 0px 8px;
+}
+.my_photo img {
+  border-radius: 50%;
+}
+.photo img {
+  border-radius: 50%;
+}
+
+.photos {
+  background-color: #FEEAD1;
+}
