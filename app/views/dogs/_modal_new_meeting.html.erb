@@ -1,0 +1,21 @@
+<div class="modal fade" id="newmeetingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit the profile of my dog</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <%= simple_form_for([@dog, @meeting]) do |f| %>
+        <%= f.input :date %>
+        <%= f.input :comment %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

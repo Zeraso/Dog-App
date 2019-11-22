@@ -2,22 +2,21 @@ class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
 
   def index
-
-
     @breed = params[:breed]
     @radius = params[:radius]
     @gender = params[:gender]
+
     if @breed.present? && @gender != "Any"
       @dogs = policy_scope(Dog).where('breed ILIKE ? AND gender ILIKE ?', "%#{@breed}%", @gender)
-                 .near(current_user.address, @radius = 5)
+
     elsif @breed.present? && @gender == "Any"
       @dogs = policy_scope(Dog).where('breed ILIKE ?', "%#{@breed}%")
-                 .near(current_user.address, @radius = 5)
+
     elsif @gender == "Any"
-      @dogs = policy_scope(Dog).geocoded.near(current_user.address, @radius = 5)
+      @dogs = policy_scope(Dog)
     elsif @gender.present?
       @dogs = policy_scope(Dog).geocoded.where('gender ILIKE ?', @gender)
-                 .near(current_user.address, @radius = 5)
+
     else
       @dogs = policy_scope(Dog).order(created_at: :desc).where(available: true)
     end
@@ -34,7 +33,7 @@ class DogsController < ApplicationController
   def show
     @dog = Dog.find(params[:id])
     @marker = [{ lat: @dog.latitude, lng: @dog.longitude }]
-
+    @meeting = Meeting.new
     @meetings = @dog.meetings
   end
 

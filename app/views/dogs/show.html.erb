@@ -1,17 +1,37 @@
+<!-- TO DO :
+décommenter le render ligne 6
+debugger -->
+
+
 <%= render 'modal_edit_dog' %>
 <%= render 'modal_new_meeting' %>
 
-<div class="container mt-3 pt-5">
-  <h1 class="text-center pb-3"><%= @dog.user.first_name %>, do you like <strong><%= @dog.name %></strong> ?</h1>
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+ -->
+<div class="container mt-3 pt-4">
+  <% if @current_user.id == @dog.user.id %>
+    <h1 class="text-center pb-3">How is <strong><%= @dog.name %></strong> doing <%= @dog.user.first_name %> ?</h1>
+  <% else %>
+    <h1 class="text-center pb-3"><%= @dog.user.first_name %>, do you like <strong><%= @dog.name %></strong> ?</h1>
+  <% end %>
   <div class="card-dog-master shadow-sm p-2 bg-white rounded">
     <div class="row my-1 mx-auto">
       <div class="col-sm-8">
         <div class="card-show-dog row">
           <div class="card-dog-infos col-sm-8">
-            <img src="https://source.unsplash.com/1600x900/?dog,breed,cute" class= "img-fluid"/>
-          </div>
+            <% if @dog.photos.attached? %>
+            <% @dog.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+            <% else %>
+              <img src="https://source.unsplash.com/1600x900/?dog,<%= @dog.breed %>,breed,cute" class= "img-fluid"/>
+            <% end %>
+<!--             <img src="https://source.unsplash.com/1600x900/?dog,breed,cute" class= "img-fluid"/>
+ -->      </div>
           <div class="card-dog-infos col-sm-4">
-            <div class="card-dog-intel pt-4">
+            <div class="card-dog-intel pt-4 mt-3">
               <h2 class="font-weight-bold"><%= @dog.name %>
                   <% if @dog.gender == "Female" %>
                     <i class= "fas fa-venus"></i>
@@ -20,18 +40,18 @@
                   <% end %>
               </h2>
               <ul class="pt-5">
-                <li><% now = Date.today %>
+                <li><strong><% now = Date.today %>
                   <%= year = now.year - @dog.birthday.year %>
                   <% if (@dog.birthday+year.year) > now %>
                   <% year = year - 1 %>
-                  <% end %>years old
+                  <% end %></strong>years old
                 </li>
-                <li><%= @dog.gender %></li>
+                <li><strong><%= @dog.gender %></strong></li>
                 <li><strong><%= @dog.breed %></strong></li>
-                <li>Coat <%= @dog.coat %></li>
+                <li><strong><%= @dog.coat %></strong> coat</li>
               </ul>
             </div>
-            <div class="card-dog-actions d-flex">
+            <div class="card-dog-actions flex-end d-flex">
               <div class="p-2">
               <% if policy(@dog).destroy? %>
                 <%= link_to "Delete", @dog, class: 'btn btn-primary',
@@ -41,9 +61,14 @@
               </div>
               <div class="p-2">
                 <% if policy(@dog).edit? %>
-                  <%= link_to "Update", edit_dog_path(@dog),  class: 'btn btn-primary' %>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editdogModal">
+                    Change details
+                  </button>
                 <% else %>
-                  <%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
+
+                  <button type="button" class="btn btn-primary ml-4" data-toggle="modal" data-target="#newmeetingModal">
+                    Meet <%= @dog.name %>
+                  </button>
                 <% end %>
               </div>
             </div>
@@ -55,11 +80,11 @@
           <div
             id="map"
             style="width: auto;
-            height: 200px;"
+            height: 250px;"
             data-markers="<%= @marker.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
-          <div class="card-owner-infos pl-4 pt-5 ">
+          <div class="card-owner-infos pl-4 pt-4 mt-3 ">
             <ul>
             <li><strong><%= @dog.user.first_name %></strong></li>
             <li><%= @dog.user.status %></li>
