@@ -21,7 +21,7 @@
           <%= f.input :first_name %>
           <%= f.input :last_name %>
           <%= f.input :address %>
-          <%= f.input :status %>
+          <%= f.input :status, collection: ["Individual", "Professional"] %>
         </div>
         <div class="form-actions">
           <%= f.button :submit, "Sign up", class: "btn btn-danger" %>
