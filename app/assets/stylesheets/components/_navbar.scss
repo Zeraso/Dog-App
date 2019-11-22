@@ -2,6 +2,9 @@
   display: flex;
   padding: 0px 0px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  a {
+    color: white;
+  }
 }
 .navbar-lewagon {
   justify-content: space-between;
@@ -14,6 +17,13 @@
 
 .navbar-lewagon-white {
   background-color: white;
+  a {
+    color: #D3604C;
+  }
+
+  .badge {
+    background-color: #D3604C;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -24,7 +34,6 @@
   margin-left: 10px;
   width: 75px;
   border-radius: 50%;
-
 }
 
 
@@ -119,9 +128,6 @@ h2 :hover {
   align-items: center;
 }
 
-.fas {
-  color: #D3604C;
-}
 
 .nav-item {
   margin-top: 10px;
