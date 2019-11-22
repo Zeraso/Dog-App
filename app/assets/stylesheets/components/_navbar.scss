@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-h2 {
+.navbar-container h2 {
     margin-top: 15px;
 }
 
@@ -79,7 +79,6 @@ h2 :hover {
 
 .nav-item {
   padding: 5px 10px;
-  margin-top: 10px;
   margin-right: 20px;
   font-size: 20px;
   inline-size: max-content;
@@ -110,6 +109,14 @@ h2 :hover {
   align-items: center;
 }
 
-.fas fa-envelope {
-  font-family: arial;
+.fas {
+  color: #D3604C;
+}
+
+.nav-item {
+  margin-top: 10px;
+}
+
+.nav-items {
+  padding-right: 20px;
 }
