@@ -12,7 +12,7 @@
       <div class="photos">
       <div class="row">
       <div class="my_photo">
-        <% current_user.dogs.each do |dog|%>
+        <% [current_user.dogs.first].each do |dog|%>
           <% dog.photos.each do |photo| %>
           <%= cl_image_tag photo.key, height: 150, width: 150, radius: 100, crop: :fill%>
           <% end %>

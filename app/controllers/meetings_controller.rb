@@ -18,12 +18,12 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    @meeting = Meeting.new(meeting_params)
+    @meeting = Meeting.new(meeting_params.merge(status: 'pending'))
     authorize @meeting
     @meeting.dog = Dog.find(params[:dog_id])
     @meeting.user = current_user
 
-    if @meeting.save
+    if @meeting.save!
       redirect_to meetings_path
     else
       render :new
