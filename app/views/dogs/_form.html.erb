@@ -4,11 +4,11 @@
       <!-- This div is centered and takes 6 columns -->
       <%= simple_form_for(@dog) do |f| %>
         <%= f.input :name %>
-        <%= f.input :gender %>
+        <%= f.input :gender, as: :radio_buttons, :collection => ["Female", "Male"], :checked => ["Female"] %>
         <%= f.input :breed %>
-        <%= f.input :coat %>
+        <%= f.input :coat, collection: ["Short", "Long", "Curly", "Silky", "Rough", "Wire", "Smooth", "Hairless"] %>
         <%= f.input :birthday %>
-        <%= f.input :available %>
+        <%= f.input :available, as: :radio_buttons, :collection => [ ["Yes", true], ["No", false]], :checked => ["Yes", true] %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>

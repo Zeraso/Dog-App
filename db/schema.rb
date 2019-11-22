@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_113331) do
     t.string "name"
     t.string "breed"
     t.string "coat"
-    t.boolean "available", default: false
+    t.boolean "available", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
