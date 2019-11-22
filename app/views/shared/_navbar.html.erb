@@ -1,4 +1,9 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% if controller_name == 'dogs' && action_name == 'index' %>
+  <% css_class = 'navbar' %>
+<% else %>
+  <% css_class = 'navbar-lewagon-white' %>
+<% end %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= css_class %>">
   <div class="navbar-container">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
