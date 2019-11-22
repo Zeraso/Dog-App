@@ -4,7 +4,7 @@ debugger -->
 
 
 <%= render 'modal_edit_dog' %>
-<!-- render 'modal_new_meeting' -->
+<%= render 'modal_new_meeting' %>
 
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
@@ -21,8 +21,15 @@ debugger -->
       <div class="col-sm-8">
         <div class="card-show-dog row">
           <div class="card-dog-infos col-sm-8">
-            <img src="https://source.unsplash.com/1600x900/?dog,breed,cute" class= "img-fluid"/>
-          </div>
+            <% if @dog.photos.attached? %>
+            <% @dog.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+            <% else %>
+              <img src="https://source.unsplash.com/1600x900/?dog,<%= @dog.breed %>,breed,cute" class= "img-fluid"/>
+            <% end %>
+<!--             <img src="https://source.unsplash.com/1600x900/?dog,breed,cute" class= "img-fluid"/>
+ -->      </div>
           <div class="card-dog-infos col-sm-4">
             <div class="card-dog-intel pt-4 mt-3">
               <h2 class="font-weight-bold"><%= @dog.name %>
@@ -58,8 +65,8 @@ debugger -->
                     Change details
                   </button>
                 <% else %>
-                  <%= link_to "Rent the Dog", new_dog_meeting_path(@dog), class: 'btn btn-primary'  %>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newmeetingModal">
+
+                  <button type="button" class="btn btn-primary ml-4" data-toggle="modal" data-target="#newmeetingModal">
                     Meet <%= @dog.name %>
                   </button>
                 <% end %>

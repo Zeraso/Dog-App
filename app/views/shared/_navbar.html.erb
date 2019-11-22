@@ -35,7 +35,7 @@
               <%= image_tag "https://affiliation.manomano.fr/wp-content/uploads/2019/04/2-1.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <% if current_user.dogs.count == 0 %>
-                  <%= link_to("Add a Puppy", new_dog_path, class: "dropdown-item") %>
+                  <%= link_to "Add My Doggy", new_dog_path, class: "dropdown-item" %>
                 <% else %>
                   <%= link_to "My Puppies", my_dogs_path, class: "dropdown-item" %>
                 <% end %>
