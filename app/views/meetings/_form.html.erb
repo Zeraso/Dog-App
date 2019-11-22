@@ -1,5 +1,5 @@
 <!-- This div is centered and takes 6 columns -->
-<%= simple_form_for([@dog, @meeting]) do |f| %>
+<%= simple_form_for([dog, meeting], url: dog_meetings_path(dog), method: :post) do |f| %>
   <%= f.input :date %>
   <%= f.input :comment %>
   <%= f.submit class: 'btn btn-primary' %>
